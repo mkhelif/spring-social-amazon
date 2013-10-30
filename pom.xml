@@ -4,7 +4,7 @@
   
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-amazon</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
   
 	<name>Spring Social Amazon</name>
 	<description>Spring Social extension with connection support and an API binding for Amazon</description>
