@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/social/spring-social-amazon.xsd=org/springframework/social/amazon/config/xml/spring-social-amazon-1.0.xsd
+http\://www.springframework.org/schema/social/spring-social-amazon-1.0.xsd=org/springframework/social/amazon/config/xml/spring-social-amazon-1.0.xsd
