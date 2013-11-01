@@ -11,6 +11,7 @@ import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 public class AmazonConnectionFactory extends OAuth2ConnectionFactory<Amazon> {
     
     public AmazonConnectionFactory(String consumerKey, String consumerSecret) {
-        super("Amazon", new AmazonServiceProvider(consumerKey, consumerSecret), new AmazonAdapter());
+        super("amazon", new AmazonServiceProvider(consumerKey, consumerSecret), new AmazonAdapter());
+        this.setScope("profile");
     }
 }

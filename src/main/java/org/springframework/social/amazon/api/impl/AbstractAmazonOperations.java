@@ -8,8 +8,6 @@ import org.springframework.social.MissingAuthorizationException;
  * @author Marwan Khelif
  */
 abstract class AbstractAmazonOperations {
-    
-    protected static final String API_URL = "https://www.amazon.com/ap";
 
     private final boolean authorized;
     
