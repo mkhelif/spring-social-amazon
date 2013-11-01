@@ -43,7 +43,11 @@ public class AmazonTemplate extends AbstractOAuth2ApiBinding implements Amazon {
         return userOperations;
     }
     
-    public <T> T fetchObject(final String path, final Class<T> type) {
+    /**
+     * Retrieve an Object from Amazon.
+     * To authenticate the request, Amazon is expecting the access token to be set as a parameter.
+     */
+    protected <T> T fetchObject(final String path, final Class<T> type) {
         URI url = URIBuilder.fromUri(API_URL + path).queryParam("access_token", accessToken).build();
         return getRestTemplate().getForObject(url, type);
     }
