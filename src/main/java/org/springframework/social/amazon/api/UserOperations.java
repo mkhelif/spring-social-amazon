@@ -12,5 +12,5 @@ public interface UserOperations {
      *
      * @return the Amazon customer profile.
      */
-    CustomerProfile getCustomerProfile();
+    Profile getCustomerProfile();
 }

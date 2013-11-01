@@ -1,8 +1,8 @@
 package org.springframework.social.amazon.api.impl;
 
-import org.springframework.social.amazon.api.CustomerProfile;
+import org.springframework.social.amazon.api.Profile;
+import org.springframework.social.amazon.api.ProfileRequest;
 import org.springframework.social.amazon.api.UserOperations;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Implementation of Amazon user operations.
@@ -11,16 +11,16 @@ import org.springframework.web.client.RestTemplate;
  */
 class UserTemplate extends AbstractAmazonOperations implements UserOperations {
     
-    private final RestTemplate restTemplate;
+    private final AmazonTemplate template;
     
-    public UserTemplate(final RestTemplate restTemplate, final boolean authorized) {
+    public UserTemplate(final AmazonTemplate template, final boolean authorized) {
         super(authorized);
-        this.restTemplate = restTemplate;
+        this.template = template;
     }
 
     @Override
-    public CustomerProfile getCustomerProfile() {
+    public Profile getCustomerProfile() {
         requireAuthorization();
-        return restTemplate.getForObject(API_URL + "/user/profile", CustomerProfile.class);
+        return template.fetchObject("/user/profile", ProfileRequest.class).getProfile();
     }
 }

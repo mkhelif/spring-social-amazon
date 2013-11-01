@@ -2,7 +2,7 @@ package org.springframework.social.amazon.connect;
 
 import org.springframework.social.ApiException;
 import org.springframework.social.amazon.api.Amazon;
-import org.springframework.social.amazon.api.CustomerProfile;
+import org.springframework.social.amazon.api.Profile;
 import org.springframework.social.connect.ApiAdapter;
 import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
@@ -27,18 +27,18 @@ public class AmazonAdapter implements ApiAdapter<Amazon> {
 
     @Override
     public void setConnectionValues(Amazon api, ConnectionValues values) {
-        CustomerProfile profile = api.userOperations().getCustomerProfile();
-        values.setProviderUserId(profile.getId());
+        Profile profile = api.userOperations().getCustomerProfile();
+        values.setProviderUserId(profile.getCustomerId());
         values.setDisplayName(profile.getName());
     }
 
     @Override
     public UserProfile fetchUserProfile(Amazon api) {
-        CustomerProfile profile = api.userOperations().getCustomerProfile();
+        Profile profile = api.userOperations().getCustomerProfile();
         UserProfileBuilder builder = new UserProfileBuilder();
         builder.setName(profile.getName());
         builder.setUsername(profile.getName());
-        builder.setEmail(profile.getEmail());
+        builder.setEmail(profile.getPrimaryEmail());
         return builder.build();
     }
 
